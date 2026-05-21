@@ -44,53 +44,55 @@ function Games() {
                 <div className="carousel">
                     <button className="carousel-arrow carousel-arrow-left" onClick={prev}>‹</button>
 
-                    {game.type === "released" ? (
-                        <div className="game-card">
-                            <div className="game-card-video">
-                                <iframe
-                                    className="featured-video"
-                                    src={`https://www.youtube.com/embed/${game.videoId}`}
-                                    title={`${game.title} Trailer`}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
-                            <div className="game-card-info">
-                                <div className="game-tags">
-                                    {game.tags.map(tag => (
-                                        <span key={tag} className="game-tag">{tag}</span>
-                                    ))}
+                    <div className="carousel-slide" key={current}>
+                        {game.type === "released" ? (
+                            <div className="game-card">
+                                <div className="game-card-video">
+                                    <iframe
+                                        className="featured-video"
+                                        src={`https://www.youtube.com/embed/${game.videoId}`}
+                                        title={`${game.title} Trailer`}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
-                                <p className="game-card-desc">{game.description}</p>
-                                <div className="game-card-links">
-                                    <a href={game.playStoreUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                                        Google Play ↗
-                                    </a>
-                                    <a href={game.youtubeUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">
-                                        Watch Trailer ↗
-                                    </a>
-                                </div>
-                                <div className="game-features">
-                                    {game.features.map((f, i) => (
-                                        <div key={i} className="game-feature">
-                                            <span>{f.icon}</span>
-                                            <div>
-                                                <h4>{f.title}</h4>
-                                                <p>{f.desc}</p>
+                                <div className="game-card-info">
+                                    <div className="game-tags">
+                                        {game.tags.map(tag => (
+                                            <span key={tag} className="game-tag">{tag}</span>
+                                        ))}
+                                    </div>
+                                    <p className="game-card-desc">{game.description}</p>
+                                    <div className="game-card-links">
+                                        <a href={game.playStoreUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                                            Google Play ↗
+                                        </a>
+                                        <a href={game.youtubeUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                                            Watch Trailer ↗
+                                        </a>
+                                    </div>
+                                    <div className="game-features">
+                                        {game.features.map((f, i) => (
+                                            <div key={i} className="game-feature">
+                                                <span>{f.icon}</span>
+                                                <div>
+                                                    <h4>{f.title}</h4>
+                                                    <p>{f.desc}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ) : (
-                        <div className="coming-soon">
-                            <p className="coming-soon-label">Coming Soon</p>
-                            <h3 className="coming-soon-title">{game.title}</h3>
-                            <p className="coming-soon-desc">{game.description}</p>
-                        </div>
-                    )}
+                        ) : (
+                            <div className="coming-soon">
+                                <p className="coming-soon-label">Coming Soon</p>
+                                <h3 className="coming-soon-title">{game.title}</h3>
+                                <p className="coming-soon-desc">{game.description}</p>
+                            </div>
+                        )}
+                    </div>
 
                     <button className="carousel-arrow carousel-arrow-right" onClick={next}>›</button>
                 </div>
