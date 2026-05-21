@@ -25,7 +25,9 @@ function Page()
                         Dodge police chases, conquer leaderboards, and dominate the highways
                         across four immersive game modes with dynamic day/night cycles.
                     </p>
-                    <Link to="/games" className="btn-outline">Learn More →</Link>
+                    <div className="featured-btn">
+                        <Link to="/games" className="btn-outline">Learn More →</Link>
+                    </div>
                 </div>
                 <div className="featured-image">
                     <iframe 

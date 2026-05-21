@@ -7,6 +7,7 @@ function Footer() {
                 <div>
                     <p className="footer-title">ORDEAL GAMES</p>
                     <p className="footer-copyright">&copy; {new Date().getFullYear()} Ordeal Games. All rights reserved.</p>
+                    <Link to="/privacy" className="footer-privacy">Privacy Policy</Link>
                 </div>
                 <ul className="footer-links">
                     <li><Link to="/">HOME</Link></li>
