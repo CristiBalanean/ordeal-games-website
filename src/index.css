@@ -311,6 +311,17 @@ main {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.footer-privacy {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-privacy:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 /* ── Games Page ────────────────── */
 .games-container {
   max-width: 1000px;
@@ -347,14 +358,78 @@ main {
   animation-fill-mode: both;
 }
 
+/* ── Carousel ──────────────────── */
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  animation: fadeIn 0.8s ease 0.3s;
+  animation-fill-mode: both;
+}
+
+.carousel-arrow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.carousel .game-card,
+.carousel .coming-soon {
+  flex: 1;
+  min-width: 0;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  animation: fadeIn 0.8s ease 0.4s;
+  animation-fill-mode: both;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #b22828;
+  border-color: #b22828;
+}
+
+.carousel-dot:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Game Card ─────────────────── */
 .game-card {
   background: linear-gradient(145deg, rgba(25, 25, 35, 0.9), rgba(15, 15, 20, 0.95));
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 40px;
-  animation: fadeIn 0.8s ease 0.3s;
-  animation-fill-mode: both;
 }
 
 .game-card-video {
@@ -436,14 +511,13 @@ main {
   font-weight: 300;
 }
 
+/* ── Coming Soon ───────────────── */
 .coming-soon {
   background: rgba(25, 25, 35, 0.5);
   border: 1px dashed rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 60px 40px;
   text-align: center;
-  animation: fadeIn 0.8s ease 0.5s;
-  animation-fill-mode: both;
 }
 
 .coming-soon-label {
@@ -834,17 +908,6 @@ main {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.footer-privacy {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.15);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-privacy:hover {
-  color: rgba(255, 255, 255, 0.4);
-}
-
 /* ── Mobile Responsive ─────────── */
 @media (max-width: 768px) {
 
@@ -961,7 +1024,7 @@ main {
     font-size: 10px;
   }
 
-  /* Games Page */
+  /* Games Page & Carousel */
   .games-container {
     padding: 0 20px 120px;
   }
@@ -973,6 +1036,16 @@ main {
   .games-subtitle {
     font-size: 14px;
     margin-bottom: 40px;
+  }
+
+  .carousel {
+    gap: 12px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
   }
 
   .game-card-video {
@@ -1125,5 +1198,11 @@ main {
   .footer-links {
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .carousel-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
   }
 }
