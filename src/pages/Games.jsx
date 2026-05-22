@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Games() {
     const [current, setCurrent] = useState(0);
+    const touchStart = useRef(0);
+    const touchEnd = useRef(0);
 
     const games = [
         {
@@ -32,6 +34,17 @@ function Games() {
     const prev = () => setCurrent(current === 0 ? games.length - 1 : current - 1);
     const next = () => setCurrent(current === games.length - 1 ? 0 : current + 1);
 
+    const handleTouchStart = (e) => {
+        touchStart.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+        touchEnd.current = e.changedTouches[0].clientX;
+        const diff = touchStart.current - touchEnd.current;
+        if (diff > 50) next();
+        if (diff < -50) prev();
+    };
+
     return (
         <div style={{ paddingTop: 120 }}>
             <div className="games-container">
@@ -41,7 +54,11 @@ function Games() {
                     Every game we create is a new ordeal — a challenge we pour our hearts into.
                 </p>
 
-                <div className="carousel">
+                <div
+                    className="carousel"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <button className="carousel-arrow carousel-arrow-left" onClick={prev}>‹</button>
 
                     <div className="carousel-slide" key={current}>
